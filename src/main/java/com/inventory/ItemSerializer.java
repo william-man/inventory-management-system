@@ -1,41 +1,35 @@
-package main.java.com.inventory;
+package com.inventory;
 
 import  java.io.*;
 import java.util.*;
 
 public class ItemSerializer {
     
-    public static void saveItemsToFile(List<Item> items, String filename){
+    public static void saveItemsToFile(List<Item> items, String filename) throws IOException{
         ObjectOutputStream out = null;
         try{
             FileOutputStream fos = new FileOutputStream(filename);
             out = new ObjectOutputStream(fos);
             out.writeObject(items);
-        } catch (IOException e){
-            System.out.println("Couldn't write to item list: " + e.getMessage());
         } finally {
-            try{
+            if(out != null){
                 out.close();
-            } catch (Exception e){
-                System.out.println("Couldn't close write: " + e.getMessage());
             }
         }
     }
 
-    public static List<Item> loadItemsFromFile(String filename){
+    public static ArrayList<Item> loadItemsFromFile(String filename) throws IOException, ClassNotFoundException{
         ObjectInputStream in = null;
+        ArrayList<Item> items = null;
         try{
             FileInputStream fis = new FileInputStream(filename);
             in = new ObjectInputStream(fis);
-            return (List<Item>) in.readObject();
-        } catch (IOException e){
-             System.out.println("Failed to read item list: " + e.getMessage());
+            items = (ArrayList<Item>) in.readObject();
         } finally {
-            try{
+            if(in != null){
                 in.close();
-            } catch (Exception e){
-                 System.out.println("Couldn't close read: " + e.getMessage());
             }
         }
+        return items;
     }
 }
