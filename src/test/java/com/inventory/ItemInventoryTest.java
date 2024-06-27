@@ -2,6 +2,7 @@ package com.inventory;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 
@@ -18,6 +19,7 @@ public class ItemInventoryTest {
     }
 
     //test success output when valid item quantity changes
+    
     @Test
     public void testUpdateItemQuantitySuccessfully(){
         Item updatedItem = new Item("1", "Laptop", 8, 200.00);
@@ -26,6 +28,7 @@ public class ItemInventoryTest {
     }
 
     //test success output when valid price changes
+   
     @Test
     public void testUpdateItemPriceSuccessfully(){
         Item updatedItem = new Item("1", "Laptop", 8, 80.00);
@@ -34,6 +37,7 @@ public class ItemInventoryTest {
     }
 
     //test updated item is not null
+    
     @Test
     public void testUpdateItemNull(){
         //test updateItem throws exception when update is null
@@ -45,6 +49,7 @@ public class ItemInventoryTest {
     }
 
     //test updated item is not found
+    
     @Test
     public void testUpdateItemNotFound(){
         //test updateItem throws exception when item is not found
@@ -54,6 +59,7 @@ public class ItemInventoryTest {
         });
         assertEquals("Item with id " + "2xf" + " cannot be found.",exception.getMessage());
     }
+    
     @Test
     public void testUpdateItemPrice(){
         //test updateItem throws exception when update contains negative price
@@ -63,7 +69,7 @@ public class ItemInventoryTest {
         });
         assertEquals("Quantity and Price must not be less than 0.", exception.getMessage());
     } 
-
+    
     @Test
     public void testUpdateItemQuantity(){
         //test updateItem throws exception when update contains negative quantity
@@ -75,6 +81,7 @@ public class ItemInventoryTest {
     } 
 
     //test adding items
+    
     @Test
     public void testAddItem(){
         //adding a valid item returns a success message
@@ -105,12 +112,14 @@ public class ItemInventoryTest {
     }
 
     //test item deleted
+    
     @Test
     public void testDeleteItem(){
         inventory.deleteItem("1");
         assertNull(inventory.searchItem("1"));
     }
     //test item search function;
+    
     @Test
     public void testSearchItem(){
         Item search = inventory.searchItem("1");
@@ -124,6 +133,7 @@ public class ItemInventoryTest {
 
 
     //test inventory is returned correctly
+    
    @Test
     public void testGetItems() {
         Item item = new Item("2", "Pizza", 2, 2.00);
