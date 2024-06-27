@@ -3,15 +3,19 @@ package com.inventory;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * ItemInventory
+ */
 
 public class ItemInventory implements Serializable{
     private List<Item> items;
     
-    public ItemInventory(){ //construct inventory
+    //construct inventory
+    public ItemInventory(){ 
         this.items = new ArrayList<>();
     }
-
-    public String addItem(Item item) throws IllegalArgumentException {     //add items into inventory
+    //add items into inventory
+    public String addItem(Item item) throws IllegalArgumentException {     
         if(item == null){
             throw new IllegalArgumentException("Item is empty.");
         }
@@ -22,16 +26,19 @@ public class ItemInventory implements Serializable{
         return "Item added.";
     }
 
-    public boolean deleteItem(String id){  //delete items in inventory
+    //delete items in inventory
+    public boolean deleteItem(String id){  
         boolean result = items.removeIf(item->item.getId().equals(id));
         return result;
     }
 
-    public List<Item> getItems(){   //return the list of items in inventory
+    //return the list of items in inventory
+    public List<Item> getItems(){   
         return new ArrayList<>(items);
     }
 
-    public String updateItem(String id, Item updatedItem) throws IllegalArgumentException {    //update an item in the inventory
+    //update an item in the inventory
+    public String updateItem(String id, Item updatedItem) throws IllegalArgumentException {    
         if(updatedItem == null){
             throw new IllegalArgumentException("Updated item cannot be null.");
         }
@@ -46,7 +53,9 @@ public class ItemInventory implements Serializable{
         }
         throw new IllegalArgumentException("Item with id " + id + " cannot be found.");
     }
-    public Item searchItem(String id){  //search for item by id
+
+    //search for item by id
+    public Item searchItem(String id){  
         for(Item item : items){
             if(item.getId().equals(id)){
                 return item;

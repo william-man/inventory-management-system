@@ -3,8 +3,13 @@ package com.inventory;
 import  java.io.*;
 import java.util.*;
 
+/**
+ * ItemSerializer
+ */
+
+
 public class ItemSerializer {
-    
+    // save inventory items into serialized file
     public static void saveItemsToFile(List<Item> items, String filename) throws IOException{
         ObjectOutputStream out = null;
         try{
@@ -17,7 +22,7 @@ public class ItemSerializer {
             }
         }
     }
-
+    // load inventory items from serialized file
     public static ArrayList<Item> loadItemsFromFile(String filename) throws IOException, ClassNotFoundException{
         ObjectInputStream in = null;
         ArrayList<Item> items = null;

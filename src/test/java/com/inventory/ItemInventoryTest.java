@@ -60,6 +60,8 @@ public class ItemInventoryTest {
         assertEquals("Item with id " + "2xf" + " cannot be found.",exception.getMessage());
     }
     
+    //test updated item price exception
+
     @Test
     public void testUpdateItemPrice(){
         //test updateItem throws exception when update contains negative price
@@ -68,7 +70,9 @@ public class ItemInventoryTest {
             inventory.updateItem("1", updatedItemPrice);
         });
         assertEquals("Quantity and Price must not be less than 0.", exception.getMessage());
-    } 
+    }
+    
+    //test updated item quantity exception
     
     @Test
     public void testUpdateItemQuantity(){
@@ -89,7 +93,7 @@ public class ItemInventoryTest {
         String result = inventory.addItem(newItem);
         assertEquals("Item added.",result);
         
-        //adding empty item throws an erro
+        //adding empty item throws an error
         Item emptyItem = null;
         Exception exceptionEmpty = assertThrows(IllegalArgumentException.class, ()->{
             inventory.addItem(emptyItem);

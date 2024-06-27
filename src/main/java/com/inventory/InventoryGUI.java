@@ -48,6 +48,7 @@ public class InventoryGUI {
         // Inventory Panel
         /////////////////////////////////////////////////
 
+        // display all items
         inventoryPanel = new JPanel();
         inventoryPanel.setLayout(new BorderLayout());
 
@@ -74,30 +75,39 @@ public class InventoryGUI {
         controlPanel = new JPanel();
         controlPanel.setLayout(new GridLayout(10,1,5,5));
 
+        // go to add item panel
         JButton btnAdd = new JButton("Add Item");
         btnAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 showAddItemPanel();
             }
         });
+
+        // go to delete panel
         JButton btnDelete = new JButton("Delete Item");
         btnDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 showDeleteItemPanel();
             }
         });
+
+        // go to update panel
         JButton btnUpdate = new JButton("Update Item");
         btnUpdate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 showUpdateItemPanel();
             }
         });
+
+        // go to search panel
         JButton btnSearch = new JButton("Search Item");
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 showSearchItemPanel();
             }
         });
+
+        // show all inventory items
         JButton btnShowAll = new JButton("Show All");
         btnShowAll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -105,6 +115,7 @@ public class InventoryGUI {
             }
         });
 
+        // save item inventory into inventory.ser file
         JButton btnSave = new JButton("Save Inventory");
         btnSave.addActionListener( new ActionListener() {
                 public void actionPerformed(ActionEvent e){
@@ -112,7 +123,8 @@ public class InventoryGUI {
                 }
             }
         );
-
+        
+        // load item inventory from inventory.ser file
         JButton btnLoad = new JButton("Load Inventory");
         btnLoad.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -144,7 +156,7 @@ public class InventoryGUI {
         addBagConstraints.insets = new Insets(5, 10, 5, 10);
         addBagConstraints.fill = GridBagConstraints.HORIZONTAL;
        
-
+        // add item id field
         JLabel labelID = new JLabel("ID:");
         addBagConstraints.weightx = 1;
         addBagConstraints.gridx = 0;
@@ -156,6 +168,7 @@ public class InventoryGUI {
         addBagConstraints.gridy = 0;
         addItemPanel.add(fieldID,addBagConstraints);
 
+        // add item name field
         JLabel labelName = new JLabel("Name:");
         addBagConstraints.gridx = 0;
         addBagConstraints.gridy = 1;
@@ -166,6 +179,7 @@ public class InventoryGUI {
         addBagConstraints.gridy = 1;
         addItemPanel.add(fieldName,addBagConstraints);
 
+        // add item quantity field
         JLabel labelQuantity = new JLabel("Quantity:");
         addBagConstraints.gridx = 0;
         addBagConstraints.gridy = 2;
@@ -176,6 +190,7 @@ public class InventoryGUI {
         addBagConstraints.gridy = 2;
         addItemPanel.add(fieldQuantity,addBagConstraints);
 
+        // add item price field
         JLabel labelPrice = new JLabel("Price:");
         addBagConstraints.gridx = 0;
         addBagConstraints.gridy = 3;
@@ -186,6 +201,7 @@ public class InventoryGUI {
         addBagConstraints.gridy = 3;
         addItemPanel.add(fieldPrice,addBagConstraints);
 
+        // submit add item button
         JButton btnSubmit = new JButton("Submit");
         addBagConstraints.gridx = 0;
         addBagConstraints.gridy = 4;
@@ -201,7 +217,7 @@ public class InventoryGUI {
         });
         addItemPanel.add(btnSubmit,addBagConstraints);
 
-
+        // return to control panel
         JButton btnBackAdd = new JButton("Back");
         addBagConstraints.gridx = 0;
         addBagConstraints.gridy = 5;
@@ -223,6 +239,7 @@ public class InventoryGUI {
         deleteBagConstraints.insets = new Insets(5, 10,5,10);
         deleteBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 
+        // delete id field
         JLabel labelDeleteID = new JLabel("ID:");
         deleteBagConstraints.weightx = 1;
         deleteBagConstraints.gridx = 0;
@@ -234,6 +251,7 @@ public class InventoryGUI {
         deleteBagConstraints.gridy = 0;
         deleteItemPanel.add(fieldDeleteID,deleteBagConstraints);
 
+        // submit delete button
         JButton btnDeleteSubmit = new JButton("Delete");
         deleteBagConstraints.gridx = 0;
         deleteBagConstraints.gridy = 2;
@@ -246,7 +264,8 @@ public class InventoryGUI {
             }
         });
         deleteItemPanel.add(btnDeleteSubmit,deleteBagConstraints);
-
+        
+        // return to control panel
         JButton btnBackDelete = new JButton("Back");
         deleteBagConstraints.gridx = 0;
         deleteBagConstraints.gridy = 3;
@@ -267,6 +286,7 @@ public class InventoryGUI {
         updateBagConstraints.insets = new Insets(5, 10, 5, 10);
         updateBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 
+        // update id field
         JLabel labelUpdatedItemId = new JLabel("ID:");
         updateBagConstraints.weightx = 1;
         updateBagConstraints.gridx = 0;
@@ -278,6 +298,8 @@ public class InventoryGUI {
         updateBagConstraints.gridy = 0;
         updateItemPanel.add(fieldUpdateId,updateBagConstraints);
 
+
+        //update name field
         JLabel labelUpdatedItemName = new JLabel("Name:");
         updateBagConstraints.gridx = 0;
         updateBagConstraints.gridy = 1;
@@ -288,6 +310,7 @@ public class InventoryGUI {
         updateBagConstraints.gridy = 1;
         updateItemPanel.add(fieldUpdateName,updateBagConstraints);
 
+        // update quantity field
         JLabel labelUpdatedItemQuantity = new JLabel("Quantity:");
         updateBagConstraints.gridx = 0;
         updateBagConstraints.gridy = 2;
@@ -298,6 +321,7 @@ public class InventoryGUI {
         updateBagConstraints.gridy = 2;
         updateItemPanel.add(fieldUpdateQuantity,updateBagConstraints);
 
+        // update price field
         JLabel labelUpdatedItemPrice = new JLabel("Price:");
         updateBagConstraints.gridx = 0;
         updateBagConstraints.gridy = 3;
@@ -308,6 +332,7 @@ public class InventoryGUI {
         updateBagConstraints.gridy = 3;
         updateItemPanel.add(fieldUpdatePrice,updateBagConstraints);
 
+        // submit update button
         JButton btnUpdateSubmit = new JButton("Submit");
         updateBagConstraints.gridx = 0;
         updateBagConstraints.gridy = 4;
@@ -326,6 +351,8 @@ public class InventoryGUI {
             }
         });
         updateItemPanel.add(btnUpdateSubmit,updateBagConstraints);
+
+        // return to control panel
         JButton btnBackUpdate = new JButton("Back");
         updateBagConstraints.gridx = 0;
         updateBagConstraints.gridy = 5;
@@ -346,6 +373,7 @@ public class InventoryGUI {
         searchBagConstraints.insets = new Insets(5,10,5,10);
         searchBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 
+        // search id field
         JLabel labelSearchId = new JLabel("ID:");
         searchBagConstraints.weightx = 1;
         searchBagConstraints.gridx = 0;
@@ -357,6 +385,7 @@ public class InventoryGUI {
         searchBagConstraints.gridy = 0;
         searchItemPanel.add(fieldSearchId,searchBagConstraints);
 
+        // submit search button
         JButton btnSearchSubmit = new JButton("Submit");
         btnSearchSubmit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -368,6 +397,7 @@ public class InventoryGUI {
         searchBagConstraints.gridy = 1;
         searchItemPanel.add(btnSearchSubmit,searchBagConstraints);
 
+        // return to control panel
         JButton btnBackSearch = new JButton("Back");
         btnBackSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -402,27 +432,35 @@ public class InventoryGUI {
 
     }
 
+    // show add item panel on button click
     private void showAddItemPanel(){
         panelHistory.push(CONTROL_PANEL);
         CardLayout cardLayout = (CardLayout) cards.getLayout();
         cardLayout.show(cards, ADD_ITEM_PANEL);
     }
+
+    // show delete panel on button click
     private void showDeleteItemPanel(){
         panelHistory.push(CONTROL_PANEL);
         CardLayout cardLayout = (CardLayout) cards.getLayout();
         cardLayout.show(cards, DELETE_ITEM_PANEL);
     }
+
+    // show update panel on button click
     private void showUpdateItemPanel(){
         panelHistory.push(CONTROL_PANEL);
         CardLayout cardLayout = (CardLayout) cards.getLayout();
         cardLayout.show(cards, UPDATE_ITEM_PANEL);
     }
+
+    // show search panel on button click
     private void showSearchItemPanel(){
         panelHistory.push(CONTROL_PANEL);
         CardLayout cardLayout = (CardLayout) cards.getLayout();
         cardLayout.show(cards, SEARCH_ITEM_PANEL);
     }
 
+    // show previous panel on stack (used to go back to the main control panel)
     private void showPreviousPanel(){
         if(!panelHistory.isEmpty()){
             String previousPanel = panelHistory.pop();
@@ -431,6 +469,7 @@ public class InventoryGUI {
         };
     }
 
+    // add item into inventory, checks all fields are valid
     private void addItem(String id, String name, String quantity, String price){
         try{
             if(id.isEmpty() || name.isEmpty() || quantity.isEmpty() || price.isEmpty()){
@@ -447,6 +486,7 @@ public class InventoryGUI {
         }
     }
 
+    // delete item from inventory, checks id field used for finding the item
     private void deleteItem(String id){
         try{
             boolean result = inventory.deleteItem(id);
@@ -460,6 +500,7 @@ public class InventoryGUI {
         }
     }
 
+    // update item in inventory, checks all fields are valid
     private void updateInventoryItem(String itemId,String itemName, String quantity, String price){
         try{
             if(itemId.isEmpty() || itemName.isEmpty() || quantity.isEmpty() || price.isEmpty()){
@@ -480,6 +521,7 @@ public class InventoryGUI {
         updateTable();
     } */
 
+    // grabs all items from inventory and displays in table, used for when changes are made or to show all current items
     private void updateTable() {
         List<Item> items = inventory.getItems();
         tableModel.setRowCount(0);  // Clear existing data
@@ -489,6 +531,7 @@ public class InventoryGUI {
         }
     }
 
+    // search item in inventory, checks id field to search for item
     private void searchItem(String id){
         Item item = inventory.searchItem(id);
         if(item != null){
@@ -500,6 +543,7 @@ public class InventoryGUI {
         }
     }
 
+    // save inventory by serializing
     private void saveInventory(){
         List<Item> items = inventory.getItems();
         try{
@@ -510,6 +554,7 @@ public class InventoryGUI {
         }
     }
 
+    // load serialized inventory
     private void loadInventory(){
         try{
             ArrayList<Item> items = ItemSerializer.loadItemsFromFile("inventory.ser");
