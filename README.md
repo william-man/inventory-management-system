@@ -2,6 +2,12 @@
 
 A Java-based Inventory Management System that allows users to add, update, delete, search, and view items in an inventory. The project includes a graphical user interface (GUI) for easy interaction.
 
+## Demo
+
+<p align="center">
+  <img src="./src/demo image/demo.png" alt="Demo Image" width="600">
+</p>
+
 ## Prerequisites
 
 - Java Development Kit (JDK) 1.8 or higher
