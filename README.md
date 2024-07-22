@@ -1,4 +1,4 @@
-# inventory-management-system
+# Inventory Management System
 
 A Java-based Inventory Management System that allows users to add, update, delete, search, and view items in an inventory. The project includes a graphical user interface (GUI) for easy interaction.
 
